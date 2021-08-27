@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DarkMode UI Sample</string>
+
+    <string name="home_title">Android</string>
+    <string name="home_info_store_title_info">Info</string>
+    <string name="home_info_btn_more">More</string>
+    <string name="home_store_promo">Promo</string>
+    <string name="home_store_cart">Cart</string>
+    <string name="home_store_store">Store</string>
+    <string name="list_item_coin">Coin</string>
+    <string name="list_item_rewords">Rewords</string>
+    <string name="list_item_sell">Sell</string>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#b0c2f9</color>
+    <color name="colorPrimaryDark">#b0c2f9</color>
+    <color name="colorAccent">#80d8ff</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="progress_bar_bk">#3080d8ff</color>
+    <color name="red_badge">#cc614b</color>
+
+    <!-- To custom the light color -->
+    <color name="basic_background">#F7F7FA</color>
+    <color name="basic_card_background">#ffffff</color>
+    <color name="basic_text">#565B65</color>
+</resources>

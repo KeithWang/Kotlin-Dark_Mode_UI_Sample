@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/list_item_lay_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/home_list_item_card_bk"
+        android:elevation="4dp">
+
+        <ImageView
+            android:id="@+id/list_item_img_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/android_icon_"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/list_item_txt_coin_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/list_item_coin"
+            android:textColor="@color/basic_text"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/list_item_img_icon"
+            app:layout_constraintEnd_toStartOf="@+id/list_item_txt_coin_number"
+            app:layout_constraintStart_toEndOf="@+id/list_item_img_icon"
+            app:layout_constraintTop_toTopOf="@+id/list_item_img_icon" />
+
+        <TextView
+            android:id="@+id/list_item_txt_coin_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="end"
+            android:text="130,619"
+            android:textColor="@color/basic_text"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/list_item_txt_coin_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/list_item_txt_coin_title"
+            app:layout_constraintTop_toTopOf="@+id/list_item_txt_coin_title" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/list_item_guild_line_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+        <!-- process bar -->
+        <ProgressBar
+            android:id="@+id/list_item_processbar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:max="100"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:progress="80"
+            android:progressDrawable="@drawable/custom_list_item_progressbar"
+            app:layout_constraintEnd_toStartOf="@+id/list_item_guild_line_progress"
+            app:layout_constraintStart_toStartOf="@+id/list_item_img_icon"
+            app:layout_constraintTop_toBottomOf="@+id/list_item_img_icon" />
+
+        <TextView
+            android:id="@+id/list_item_txt_progress_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="end"
+            android:text="80%"
+            android:textColor="@color/basic_text"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/list_item_processbar"
+            app:layout_constraintEnd_toEndOf="@+id/list_item_txt_coin_number"
+            app:layout_constraintStart_toEndOf="@+id/list_item_guild_line_progress"
+            app:layout_constraintTop_toTopOf="@+id/list_item_processbar" />
+
+
+        <LinearLayout
+            android:id="@+id/list_item_lay_rewords_area"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/list_item_lay_sell_area"
+            app:layout_constraintEnd_toEndOf="@+id/list_item_txt_coin_number"
+            app:layout_constraintStart_toStartOf="@+id/list_item_img_icon"
+            app:layout_constraintTop_toBottomOf="@+id/list_item_processbar">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:text="@string/list_item_rewords"
+                android:textColor="@color/basic_text"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/list_item_txt_rewords_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="9.31"
+                android:textColor="@color/basic_text"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/list_item_lay_sell_area"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/list_item_txt_coin_number"
+            app:layout_constraintStart_toStartOf="@+id/list_item_img_icon"
+            app:layout_constraintTop_toBottomOf="@+id/list_item_lay_rewords_area">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:text="@string/list_item_sell"
+                android:textColor="@color/basic_text"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/list_item_txt_sell_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="99.99"
+                android:textColor="@color/basic_text"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/list_item_txt_badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/home_list_item_badge_bk"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:visibility="visible" />
+
+</FrameLayout>
