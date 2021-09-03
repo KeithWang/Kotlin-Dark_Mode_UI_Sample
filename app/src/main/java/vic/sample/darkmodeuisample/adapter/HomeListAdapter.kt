@@ -7,23 +7,24 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.row_home_list_item.view.*
 import vic.sample.darkmodeuisample.R
+import vic.sample.darkmodeuisample.databinding.ActivityMainBinding
+import vic.sample.darkmodeuisample.databinding.RowHomeListItemBinding
 import java.text.DecimalFormat
 
 
 class HomeListAdapter(
-    context: Context,
     private val items: ArrayList<ListItem>,
     private val onClickListener: ((view: View, position: Int) -> Unit)
 ) : RecyclerView.Adapter<HomeListAdapter.ViewHolder>() {
 
-    private val mInflater: LayoutInflater = LayoutInflater.from(context)
+    private lateinit var binding: RowHomeListItemBinding
+
     private var mNumberFormatter = DecimalFormat("#,###,###")
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        binding = RowHomeListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-        val view = mInflater.inflate(R.layout.row_home_list_item, parent, false)
-
-        return ViewHolder(view, onClickListener)
+        return ViewHolder(binding, onClickListener)
     }
 
     override fun getItemCount() = items.size
@@ -35,20 +36,20 @@ class HomeListAdapter(
     }
 
     class ViewHolder(
-        private val view: View,
+        private val binding: RowHomeListItemBinding,
         private val onClickListener: ((view: View, position: Int) -> Unit)
-    ) : RecyclerView.ViewHolder(view) {
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ListItem, position: Int, DecimalFormat: DecimalFormat) {
-            view.list_item_txt_coin_number.text = DecimalFormat.format(item.coinValue)
-            view.list_item_processbar.progress = item.progressPercent
-            view.list_item_txt_progress_value.text = "${item.progressPercent}%"
-            view.list_item_txt_rewords_value.text = DecimalFormat.format(item.rewords)
-            view.list_item_txt_sell_value.text = DecimalFormat.format(item.sell)
-            view.list_item_txt_badge.visibility =
+            binding.listItemTxtCoinNumber.text = DecimalFormat.format(item.coinValue)
+            binding.listItemProcessbar.progress = item.progressPercent
+            binding.listItemTxtProgressValue.text = "${item.progressPercent}%"
+            binding.listItemTxtRewordsValue.text = DecimalFormat.format(item.rewords)
+            binding.listItemTxtSellValue.text = DecimalFormat.format(item.sell)
+            binding.listItemTxtBadge.visibility =
                 if (item.isBadgeShow) View.VISIBLE else View.INVISIBLE
 
-            view.list_item_lay_out.setOnClickListener {
-                onClickListener.invoke(view, position)
+            binding.listItemLayOut.setOnClickListener {
+                onClickListener.invoke(binding.root, position)
             }
 
         }

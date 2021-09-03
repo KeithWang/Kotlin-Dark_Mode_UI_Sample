@@ -17,21 +17,15 @@ import kotlinx.coroutines.launch
 import vic.sample.darkmodeuisample.adapter.HomeListAdapter
 import vic.sample.darkmodeuisample.adapter.ListItem
 import vic.sample.darkmodeuisample.basic.BasicActivity
+import vic.sample.darkmodeuisample.databinding.ActivityMainBinding
 
 class MainActivity : BasicActivity() {
 
-    private val wLayLoadingArea : FrameLayout by lazy { home_lay_loading_area }
-    private val wLayBtnSetting: MaterialCardView by lazy { home_lay_btn_setting }
-    private val wTxtBtnMore: TextView by lazy { home_txt_btn_more }
-    private val wLayBtnPromo: LinearLayout by lazy { home_lay_btn_promo }
-    private val wLayBtnCart: LinearLayout by lazy { home_lay_btn_cart }
-    private val wLayBtnStore: LinearLayout by lazy { home_lay_btn_store }
-
-    private val wRecyclerView: RecyclerView by lazy { home_recycle_view }
+    private lateinit var binding: ActivityMainBinding
 
     private val mHomeListItem = ArrayList<ListItem>()
     private val mHomeListAdapter: HomeListAdapter by lazy {
-        HomeListAdapter(mContext, mHomeListItem) { view, position ->
+        HomeListAdapter(mHomeListItem) { view, position ->
             mHomeListItem[position].isBadgeShow = false
             mHomeListAdapter.notifyItemChanged(position)
             callToast("List Item Click, Position : $position", true)
@@ -40,7 +34,8 @@ class MainActivity : BasicActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initView()
         setViewListener()
     }
@@ -50,30 +45,27 @@ class MainActivity : BasicActivity() {
         * To simulate loading data
         * */
         GlobalScope.launch(Main) {
-            wLayLoadingArea.visibility = View.VISIBLE
+            binding.homeLayLoadingArea.visibility = View.VISIBLE
             delay(2000)
             initListView()
-            wLayLoadingArea.visibility = View.GONE
+            binding.homeLayLoadingArea.visibility = View.GONE
         }
     }
 
     private fun setViewListener() {
-        wLayBtnSetting.setOnClickListener { callToast("Setting Click", true) }
-        wTxtBtnMore.setOnClickListener { callToast("More Click", true) }
-        wLayBtnPromo.setOnClickListener { callToast("Promo Click", true) }
-        wLayBtnCart.setOnClickListener { callToast("Cart Click", true) }
-        wLayBtnStore.setOnClickListener { callToast("Store Click", true) }
+        binding.homeLayBtnSetting.setOnClickListener { callToast("Setting Click", true) }
+        binding.homeTxtBtnMore.setOnClickListener { callToast("More Click", true) }
+        binding.homeLayBtnPromo.setOnClickListener { callToast("Promo Click", true) }
+        binding.homeLayBtnCart.setOnClickListener { callToast("Cart Click", true) }
+        binding.homeLayBtnStore.setOnClickListener { callToast("Store Click", true) }
     }
 
     /*
     * RecycleView Init
     * */
     private fun initListView() {
-        wRecyclerView.apply {
+        binding.homeRecycleView.apply {
             adapter = mHomeListAdapter
-            layoutManager = LinearLayoutManager(
-                this@MainActivity, RecyclerView.VERTICAL, false
-            )
             itemAnimator = DefaultItemAnimator()
         }
 

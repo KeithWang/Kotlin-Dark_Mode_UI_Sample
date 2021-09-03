@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DarkModeUISample.iml" filepath="$PROJECT_DIR$/.idea/modules/DarkModeUISample.iml" group="DarkModeUISample" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="DarkModeUISample/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DarkModeUISample.iml" filepath="$PROJECT_DIR$/.idea/modules/DarkModeUISample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/DarkModeUISample.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/DarkModeUISample.app.iml" />
     </modules>
   </component>
 </project>
